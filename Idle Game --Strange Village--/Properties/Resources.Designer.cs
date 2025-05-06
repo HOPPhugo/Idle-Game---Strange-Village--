@@ -63,9 +63,59 @@ namespace Idle_Game___Strange_Village__.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Capture {
+        internal static System.Drawing.Bitmap _3ooRmV {
             get {
-                object obj = ResourceManager.GetObject("Capture", resourceCulture);
+                object obj = ResourceManager.GetObject("_3ooRmV", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3ooRmVBloqued {
+            get {
+                object obj = ResourceManager.GetObject("_3ooRmVBloqued", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Background {
+            get {
+                object obj = ResourceManager.GetObject("Background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap backskyes {
+            get {
+                object obj = ResourceManager.GetObject("backskyes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pixil_frame_0__3_ {
+            get {
+                object obj = ResourceManager.GetObject("pixil_frame_0__3_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sr5z7f7962affaaws3 {
+            get {
+                object obj = ResourceManager.GetObject("sr5z7f7962affaaws3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
