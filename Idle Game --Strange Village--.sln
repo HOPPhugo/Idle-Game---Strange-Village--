@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34714.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Idle Game --Strange Village--", "Idle Game --Strange Village--\Idle Game --Strange Village--.csproj", "{C906919C-BF69-4844-A394-4ABDE67F42DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C906919C-BF69-4844-A394-4ABDE67F42DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C906919C-BF69-4844-A394-4ABDE67F42DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C906919C-BF69-4844-A394-4ABDE67F42DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C906919C-BF69-4844-A394-4ABDE67F42DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C959C1C-86E9-497C-A770-3F6FE0ECE3D6}
+	EndGlobalSection
+EndGlobal
