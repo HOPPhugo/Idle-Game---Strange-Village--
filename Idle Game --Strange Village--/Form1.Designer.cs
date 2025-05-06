@@ -33,7 +33,12 @@
             this.FirstHouse = new System.Windows.Forms.Timer(this.components);
             this.Dollars = new System.Windows.Forms.Timer(this.components);
             this.Vérif = new System.Windows.Forms.Timer(this.components);
+            this.autoBirdie_Timer = new System.Windows.Forms.Timer(this.components);
             this.background1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,9 +46,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.WAluigiTimer = new System.Windows.Forms.Timer(this.components);
+            this.label8 = new System.Windows.Forms.Label();
             this.background1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -66,11 +73,21 @@
             this.Vérif.Interval = 1;
             this.Vérif.Tick += new System.EventHandler(this.Vérif_Tick);
             // 
+            // autoBirdie_Timer
+            // 
+            this.autoBirdie_Timer.Enabled = true;
+            this.autoBirdie_Timer.Interval = 1000;
+            this.autoBirdie_Timer.Tick += new System.EventHandler(this.autoBirdie_Timer_Tick);
+            // 
             // background1
             // 
             this.background1.BackColor = System.Drawing.Color.White;
             this.background1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("background1.BackgroundImage")));
             this.background1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.background1.Controls.Add(this.label8);
+            this.background1.Controls.Add(this.label7);
+            this.background1.Controls.Add(this.pictureBox3);
+            this.background1.Controls.Add(this.button2);
             this.background1.Controls.Add(this.label6);
             this.background1.Controls.Add(this.label5);
             this.background1.Controls.Add(this.pictureBox2);
@@ -85,6 +102,50 @@
             this.background1.Size = new System.Drawing.Size(804, 977);
             this.background1.TabIndex = 0;
             this.background1.Click += new System.EventHandler(this.background1_Click);
+            this.background1.Paint += new System.Windows.Forms.PaintEventHandler(this.background1_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Idle_Game___Strange_Village__.Properties.Resources.WaluigiLocked;
+            this.pictureBox3.Location = new System.Drawing.Point(34, 728);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(191, 186);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Visible = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(713, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Auto Birdie";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(372, 247);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(394, 415);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(14, 26);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "V\r\nV\r\n";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox2
             // 
@@ -109,6 +170,7 @@
             this.label4.Size = new System.Drawing.Size(27, 62);
             this.label4.TabIndex = 5;
             this.label4.Text = "^\r\n^";
+            this.label4.Visible = false;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // button1
@@ -164,24 +226,29 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(394, 415);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(14, 26);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "V\r\nV\r\n";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(722, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "niveau : 1";
+            this.label7.Visible = false;
             // 
-            // label6
+            // WAluigiTimer
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(372, 247);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 13);
-            this.label6.TabIndex = 8;
+            this.WAluigiTimer.Enabled = true;
+            this.WAluigiTimer.Tick += new System.EventHandler(this.WAluigiTimer_Tick);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(123, 871);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.TabIndex = 12;
             // 
             // Form1
             // 
@@ -196,6 +263,7 @@
             this.Text = "Form1";
             this.background1.ResumeLayout(false);
             this.background1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -217,6 +285,12 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer autoBirdie_Timer;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Timer WAluigiTimer;
+        private System.Windows.Forms.Label label8;
     }
 }
 

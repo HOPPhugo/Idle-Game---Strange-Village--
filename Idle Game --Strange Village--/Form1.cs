@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,17 @@ namespace Idle_Game___Strange_Village__
             System.Reflection.BindingFlags.SetProperty,
             null, background1, new object[] { true });
         }
-        int money;
+        int money = 999999999;
         int House1LVL = 1;
+        int multiplication = 0;
         bool birdie = false;
         bool House1GUI = false;
         bool message1 = true;
+        bool waluigi  = false;
         bool message2 = true;
+        bool autoBirdie = false;
+        int NBRClickB = 0;
+        bool birdielbl2 = false;
         bool bouger = false;
 
         private void FirstHouse_Tick(object sender, EventArgs e)
@@ -147,7 +153,7 @@ namespace Idle_Game___Strange_Village__
             {
                 button1.ForeColor = Color.Black;
                 button1.Enabled = false;
-                label3.Text = "Niveau : 3";
+                label3.Text = "Niveau : 3 (max)";
                 money = money - 200;
                 MessageBox.Show("Bravo ! Une flèche est apparue au milieu en haut de votre écran. Testez de cliquer dessus !");
                 label4.Visible = true;
@@ -207,7 +213,11 @@ namespace Idle_Game___Strange_Village__
                         birdie = true;
                         money = money - 300;
                         pictureBox2.Image = Properties.Resources._3ooRmV;
-                        MessageBox.Show("Vous avez débloqué --Birdie--  (vous devez cliquer dessus pour généré de l'argent)"); return;
+                        MessageBox.Show("Vous avez débloqué --Birdie--  (vous devez cliquer dessus pour généré de l'argent)"); 
+                        button2.Visible = true;
+                        label7.Visible = true;
+                        pictureBox3.Visible = true;
+                        return;
                     }
                     else
                     {
@@ -221,9 +231,21 @@ namespace Idle_Game___Strange_Village__
             }
             else
             {
-                money = money + 5;
-                label6.Text = "+ 5$";
-                Birdie_Texte();
+                NBRClickB = NBRClickB + 1;
+                multiplication = NBRClickB / 10;
+                if ( multiplication < 1)
+                {
+                    money = money + 5;
+                    label6.Text = "+ 5$";
+                    Birdie_Texte();
+                }
+                else
+                {
+                    money  = money + (5 * multiplication);
+                    label6.Text = "+ "+5 * multiplication + "$";
+                    Birdie_Texte();
+                }
+                
             }
         }
         private async void Birdie_Texte()
@@ -254,6 +276,104 @@ namespace Idle_Game___Strange_Village__
                         return;
                     }
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (autoBirdie == false){
+                DialogResult rn = MessageBox.Show("Veux-tu acheter l'auto Birdie ?", "Cost : 900$", MessageBoxButtons.YesNo);
+                if (rn == DialogResult.Yes)
+                {
+                    if (money >= 900)
+                    {
+                        money = money - 900;
+                        autoBirdie = true;
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous n'avez pas asser d'argent...");
+                    }
+                }
+            }
+            if (autoBirdie == true && birdielbl2 == false)
+            {
+                DialogResult rn = MessageBox.Show("Veux-tu améliorer l'auto Birdie ?", "Cost : 1800$", MessageBoxButtons.YesNo);
+                if (rn == DialogResult.Yes)
+                {
+                    if (money >= 1800)
+                    {
+                        money = money - 1800;
+                        birdielbl2 = true;
+                        label7.Text = "niveau : 2 (max)";
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous n'avez pas asser d'argent...");
+                    }
+                }
+            }
+            if (birdielbl2 == true)
+            {
+                MessageBox.Show("Vous ne pouvez plus l'améliorer...");
+            }
+        }
+
+        private void autoBirdie_Timer_Tick(object sender, EventArgs e)
+        {
+            if (autoBirdie == true && birdielbl2 == false)
+            {
+                money = money + 5;
+                label6.Text = "+ 5$";
+                Birdie_Texte();
+            }
+            if (autoBirdie == true && birdielbl2 == true)
+            {
+                money = money + 10;
+                label6.Text = "+ 10$";
+                Birdie_Texte();
+            }
+        }
+
+        private void background1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            DialogResult rn = MessageBox.Show("Souhaitez vous débloquer --Monstro Waluigi-- ?", "Cost : 4000$", MessageBoxButtons.YesNo);
+            if (rn == DialogResult.Yes)
+            {
+                if (money >= 4000)
+                {
+                    money = money - 4000;
+                    pictureBox3.Image = Properties.Resources.WaluigiUnlocked;
+                    waluigi = true;
+                    MessageBox.Show("Vous avez débloqué --Monstro Waluigi-- !");
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Vous n'avez pas assez d'argent...");
+                }
+            }
+        }
+        private async void WaluigilblTimer()
+        {
+            await Task.Delay(75);
+            label8.Text = "";
+        }
+
+        private void WAluigiTimer_Tick(object sender, EventArgs e)
+        {
+            if (waluigi == true)
+            {
+                money = money + 45;
+                label8.Text = "+ 45$";
+                WaluigilblTimer();
             }
         }
     }
