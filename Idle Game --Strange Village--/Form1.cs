@@ -25,10 +25,15 @@ namespace Idle_Game___Strange_Village__
         int money = 999999999;
         int House1LVL = 1;
         int multiplication = 0;
+        int LVL = 1;
+        int valueXp = 100;
         bool birdie = false;
+        int calculeL;
         bool House1GUI = false;
         bool message1 = true;
         bool waluigi  = false;
+        int XP = 0;
+        bool CrazyFrog = false;
         bool message2 = true;
         bool autoBirdie = false;
         int NBRClickB = 0;
@@ -174,11 +179,14 @@ namespace Idle_Game___Strange_Village__
 
                         location = background1.Location.Y;
                         int location2 = label1.Location.Y;
+                        int location3 = label9.Location.Y;
                         await Task.Delay(10);
                         changer = changer + 10;
                         location2 = location2 - 10;
+                        location3 = location3 - 10;
                         background1.Location = new Point(0, changer) ;
-                        label1.Location = new Point(0, location2);
+                        label1.Location = new Point(3, location2);
+                        label9.Location = new Point(614, location3);
                         if (location == 0)
                         {
                             return;
@@ -265,12 +273,15 @@ namespace Idle_Game___Strange_Village__
                 {
 
                     location = background1.Location.Y;
+                    int location3 = label9.Location.Y;
                     int location2 = label1.Location.Y;
                     await Task.Delay(10);
                     changer = changer - 10;
                     location2 = location2 + 10;
+                    location3 = location3 + 10;
                     background1.Location = new Point(0, changer);
-                    label1.Location = new Point(0, location2);
+                    label1.Location = new Point(3, location2);
+                    label9.Location = new Point(614, location3);
                     if (location == -450)
                     {
                         return;
@@ -344,26 +355,36 @@ namespace Idle_Game___Strange_Village__
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            DialogResult rn = MessageBox.Show("Souhaitez vous débloquer --Monstro Waluigi-- ?", "Cost : 4000$", MessageBoxButtons.YesNo);
-            if (rn == DialogResult.Yes)
+            if (waluigi == false){
+                DialogResult rn = MessageBox.Show("Souhaitez vous débloquer --Monstro Waluigi-- ?", "Cost : 4000$", MessageBoxButtons.YesNo);
+                if (rn == DialogResult.Yes)
+                {
+                    if (money >= 4000)
+                    {
+                        money = money - 4000;
+                        pictureBox3.Image = Properties.Resources.WaluigiUnlocked;
+                        waluigi = true;
+                        MessageBox.Show("Vous avez débloqué --Monstro Waluigi-- !");
+                        MessageBox.Show("Vous avez débloquer les niveau !");
+                        pictureBox4.Visible = true;
+                        label9.Visible = true;
+                        return;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous n'avez pas assez d'argent...");
+                    }
+                }
+            }
+            else
             {
-                if (money >= 4000)
-                {
-                    money = money - 4000;
-                    pictureBox3.Image = Properties.Resources.WaluigiUnlocked;
-                    waluigi = true;
-                    MessageBox.Show("Vous avez débloqué --Monstro Waluigi-- !");
-                    
-                }
-                else
-                {
-                    MessageBox.Show("Vous n'avez pas assez d'argent...");
-                }
+                MessageBox.Show("Vous l'avez déjà débloquer...");
             }
         }
         private async void WaluigilblTimer()
         {
-            await Task.Delay(75);
+            await Task.Delay(500);
             label8.Text = "";
         }
 
@@ -371,10 +392,70 @@ namespace Idle_Game___Strange_Village__
         {
             if (waluigi == true)
             {
-                money = money + 45;
-                label8.Text = "+ 45$";
+                money = money + 450;
+                label8.Text = "+ 450$";
                 WaluigilblTimer();
             }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            if (CrazyFrog == false)
+            {
+                DialogResult rn = MessageBox.Show("Souhaitez vous débloquer --CrazyFrog-- ?", "Cost : 10,000$", MessageBoxButtons.YesNo);
+                if (rn == DialogResult.Yes)
+                {
+                    if (money >= 10000)
+                    {
+                        money = money - 10000;
+                        pictureBox3.Image = Properties.Resources.CrazyFrogUnlocked;
+                        MessageBox.Show("Vous avez débloqué --CrazyFrog-- !");
+                        XP = XP + 50;
+                        return;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vous n'avez pas assez d'argent...");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vous l'avez déjà débloquer...");
+            }
+        }
+        private async void CrazyLabel()
+        {
+            await Task.Delay(500);
+            label9.Text = "";
+        }
+
+        private void CrazyFrogTimer_Tick(object sender, EventArgs e)
+        {
+            if (CrazyFrog == true)
+            {
+                money = money + 450;
+                label9.Text = "+ 450$";
+                CrazyLabel();
+            }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void XP_TIMER_Tick(object sender, EventArgs e)
+        {
+            if (XP == valueXp)
+            {
+                LVL = LVL + 1;
+                valueXp = 100 * LVL + valueXp;
+                MessageBox.Show("Vous avez augmenter de niveau !");
+                return;
+            }
+            label9.Text = "Niveau : "+LVL+"\r\nExp : " + XP.ToString() + " / " + valueXp.ToString();
         }
     }
 }

@@ -129,11 +129,14 @@
   <metadata name="autoBirdie_Timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>294, 17</value>
   </metadata>
+  <metadata name="WAluigiTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>437, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="background1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyQAAAOOCAYAAADxjdaMAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAA/7JJREFUeF7svQWY3Faer713eWeW7t279O3u3Z2w2Q5O0HbM7ODMhJlxwjTJhNFJ
+        DgAACw4BQL7hQQAA/7JJREFUeF7svQWY3Faer713eWeW7t279O3u3Z2w2Q5O0HbM7ODMhJlxwjTJhNFJ
         nMQU24nDZLbb2Ia228wQM2Pb7Sa7DQ0+3/mdktSS+lSVqkpVJVX9/s/zPnZXHakER9J5dehPBIPBaBRz
         584VEyZMUEyfPl2UlJQY33iLlpMOhZYuM8uNvQhmjNtzQrvdJHhcXbRI7DjQTdRXtSIeGLbuTe1xJISQ
         XOW0twvEX/zZ/xEUEgZDExSS4AaFJDxQSBKDQkIIyTcoJAxGjKCQBDcoJOGBQpIYFBJCSL6Rk0JSVlbm
@@ -2403,7 +2406,10 @@
         5BfmH269JtgmiqJcbf7HdROtIME/LyiKoiiKoiiKojSe/+uF/x9lRyOJf162DwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="WAluigiTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>437, 17</value>
+  <metadata name="CrazyFrogTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>563, 17</value>
+  </metadata>
+  <metadata name="XP_TIMER.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>700, 17</value>
   </metadata>
 </root>

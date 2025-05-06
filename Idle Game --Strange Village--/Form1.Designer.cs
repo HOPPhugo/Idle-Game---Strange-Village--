@@ -34,7 +34,11 @@
             this.Dollars = new System.Windows.Forms.Timer(this.components);
             this.Vérif = new System.Windows.Forms.Timer(this.components);
             this.autoBirdie_Timer = new System.Windows.Forms.Timer(this.components);
+            this.WAluigiTimer = new System.Windows.Forms.Timer(this.components);
             this.background1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,13 +50,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.WAluigiTimer = new System.Windows.Forms.Timer(this.components);
-            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.CrazyFrogTimer = new System.Windows.Forms.Timer(this.components);
+            this.label10 = new System.Windows.Forms.Label();
+            this.XP_TIMER = new System.Windows.Forms.Timer(this.components);
             this.background1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // FirstHouse
@@ -79,11 +85,20 @@
             this.autoBirdie_Timer.Interval = 1000;
             this.autoBirdie_Timer.Tick += new System.EventHandler(this.autoBirdie_Timer_Tick);
             // 
+            // WAluigiTimer
+            // 
+            this.WAluigiTimer.Enabled = true;
+            this.WAluigiTimer.Interval = 2000;
+            this.WAluigiTimer.Tick += new System.EventHandler(this.WAluigiTimer_Tick);
+            // 
             // background1
             // 
             this.background1.BackColor = System.Drawing.Color.White;
             this.background1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("background1.BackgroundImage")));
             this.background1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.background1.Controls.Add(this.label10);
+            this.background1.Controls.Add(this.pictureBox4);
+            this.background1.Controls.Add(this.label9);
             this.background1.Controls.Add(this.label8);
             this.background1.Controls.Add(this.label7);
             this.background1.Controls.Add(this.pictureBox3);
@@ -103,6 +118,39 @@
             this.background1.TabIndex = 0;
             this.background1.Click += new System.EventHandler(this.background1_Click);
             this.background1.Paint += new System.Windows.Forms.PaintEventHandler(this.background1_Paint);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(614, 852);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(122, 50);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Niveau : 1\r\nExp : 0 / 100";
+            this.label9.Visible = false;
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(123, 871);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.TabIndex = 12;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(722, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(54, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "niveau : 1";
+            this.label7.Visible = false;
             // 
             // pictureBox3
             // 
@@ -226,29 +274,39 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label7
+            // pictureBox4
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(722, 42);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "niveau : 1";
-            this.label7.Visible = false;
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::Idle_Game___Strange_Village__.Properties.Resources.CrazyFrogLocked;
+            this.pictureBox4.Location = new System.Drawing.Point(240, 600);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(168, 168);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 14;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
-            // WAluigiTimer
+            // CrazyFrogTimer
             // 
-            this.WAluigiTimer.Enabled = true;
-            this.WAluigiTimer.Tick += new System.EventHandler(this.WAluigiTimer_Tick);
+            this.CrazyFrogTimer.Enabled = true;
+            this.CrazyFrogTimer.Interval = 1000;
+            this.CrazyFrogTimer.Tick += new System.EventHandler(this.CrazyFrogTimer_Tick);
             // 
-            // label8
+            // label10
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Location = new System.Drawing.Point(123, 871);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 13);
-            this.label8.TabIndex = 12;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Location = new System.Drawing.Point(313, 734);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 13);
+            this.label10.TabIndex = 15;
+            // 
+            // XP_TIMER
+            // 
+            this.XP_TIMER.Enabled = true;
+            this.XP_TIMER.Interval = 1;
+            this.XP_TIMER.Tick += new System.EventHandler(this.XP_TIMER_Tick);
             // 
             // Form1
             // 
@@ -266,6 +324,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,6 +350,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Timer WAluigiTimer;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Timer CrazyFrogTimer;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Timer XP_TIMER;
     }
 }
 

@@ -103,6 +103,26 @@ namespace Idle_Game___Strange_Village__.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CrazyFrogLocked {
+            get {
+                object obj = ResourceManager.GetObject("CrazyFrogLocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CrazyFrogUnlocked {
+            get {
+                object obj = ResourceManager.GetObject("CrazyFrogUnlocked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pixil_frame_0__3_ {
             get {
                 object obj = ResourceManager.GetObject("pixil_frame_0__3_", resourceCulture);
