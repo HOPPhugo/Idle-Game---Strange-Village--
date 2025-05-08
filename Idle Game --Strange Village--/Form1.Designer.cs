@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.FirstHouse = new System.Windows.Forms.Timer(this.components);
             this.Dollars = new System.Windows.Forms.Timer(this.components);
             this.Vérif = new System.Windows.Forms.Timer(this.components);
             this.autoBirdie_Timer = new System.Windows.Forms.Timer(this.components);
             this.WAluigiTimer = new System.Windows.Forms.Timer(this.components);
             this.background1 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,20 +46,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.CrazyFrogTimer = new System.Windows.Forms.Timer(this.components);
-            this.label10 = new System.Windows.Forms.Label();
             this.XP_TIMER = new System.Windows.Forms.Timer(this.components);
             this.background1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // FirstHouse
@@ -93,8 +91,8 @@
             // 
             // background1
             // 
-            this.background1.BackColor = System.Drawing.Color.White;
-            this.background1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("background1.BackgroundImage")));
+            this.background1.BackColor = System.Drawing.Color.Transparent;
+            this.background1.BackgroundImage = global::Idle_Game___Strange_Village__.Properties.Resources.Background;
             this.background1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.background1.Controls.Add(this.label10);
             this.background1.Controls.Add(this.pictureBox4);
@@ -107,7 +105,6 @@
             this.background1.Controls.Add(this.label5);
             this.background1.Controls.Add(this.pictureBox2);
             this.background1.Controls.Add(this.label4);
-            this.background1.Controls.Add(this.button1);
             this.background1.Controls.Add(this.label3);
             this.background1.Controls.Add(this.label2);
             this.background1.Controls.Add(this.label1);
@@ -116,8 +113,31 @@
             this.background1.Name = "background1";
             this.background1.Size = new System.Drawing.Size(804, 977);
             this.background1.TabIndex = 0;
+            this.background1.SizeChanged += new System.EventHandler(this.background1_SizeChanged);
             this.background1.Click += new System.EventHandler(this.background1_Click);
             this.background1.Paint += new System.Windows.Forms.PaintEventHandler(this.background1_Paint);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Location = new System.Drawing.Point(313, 734);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 13);
+            this.label10.TabIndex = 15;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.Image = global::Idle_Game___Strange_Village__.Properties.Resources.CrazyFrogLocked;
+            this.pictureBox4.Location = new System.Drawing.Point(240, 600);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(168, 168);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 14;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Visible = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // label9
             // 
@@ -221,17 +241,6 @@
             this.label4.Visible = false;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(607, 596);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Améliorer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -274,33 +283,11 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::Idle_Game___Strange_Village__.Properties.Resources.CrazyFrogLocked;
-            this.pictureBox4.Location = new System.Drawing.Point(240, 600);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(168, 168);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 14;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
             // CrazyFrogTimer
             // 
             this.CrazyFrogTimer.Enabled = true;
             this.CrazyFrogTimer.Interval = 1000;
             this.CrazyFrogTimer.Tick += new System.EventHandler(this.CrazyFrogTimer_Tick);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Location = new System.Drawing.Point(313, 734);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 13);
-            this.label10.TabIndex = 15;
             // 
             // XP_TIMER
             // 
@@ -314,17 +301,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(798, 460);
             this.Controls.Add(this.background1);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.background1.ResumeLayout(false);
             this.background1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -339,7 +327,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer Vérif;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label5;

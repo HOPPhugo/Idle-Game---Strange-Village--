@@ -103,6 +103,16 @@ namespace Idle_Game___Strange_Village__.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_8_mai_2025__11_15_54 {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT_Image_8_mai_2025__11_15_54", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CrazyFrogLocked {
             get {
                 object obj = ResourceManager.GetObject("CrazyFrogLocked", resourceCulture);

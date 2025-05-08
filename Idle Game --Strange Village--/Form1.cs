@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Contracts;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace Idle_Game___Strange_Village__
         int House1LVL = 1;
         int multiplication = 0;
         int LVL = 1;
+        int TextKeep;
         int valueXp = 100;
         bool birdie = false;
         int calculeL;
@@ -64,6 +66,7 @@ namespace Idle_Game___Strange_Village__
         private void Dollars_Tick(object sender, EventArgs e)
         {
             label1.Text = "Money : " + money + "$";
+
         }
         private async void FirstHouseLabel2 ()
         {
@@ -78,94 +81,151 @@ namespace Idle_Game___Strange_Village__
         private void Vérif_Tick(object sender, EventArgs e)
         {
             verification();
-            if (House1LVL == 1)
-            {
-                if (money >= 100)
-                {
-                    if (message1 == true)
-                    {
-                        message1 = false;
-                        button1.ForeColor = Color.Green;
-                        button1.Enabled = true;
-                        MessageBox.Show("Maintenant que vous avez suffisament d'argent, essayez de cliquer sur la Maison pour l'améliorer.");
-                        return;
-                    }
-
-                }
-                else
-                {
-                    button1.ForeColor = Color.Black;
-                    button1.Enabled = false;
-                }
-            }
-            if (House1LVL == 2)
-            {
-                if (money >= 200)
-                {
-                    if (message2 == true)
-                    {
-                        message2 = false;
-                        button1.ForeColor = Color.Green;
-                        button1.Enabled = true;
-                        return;
-                    }
-
-                }
-                else
-                {
-                    button1.ForeColor = Color.Black;
-                    button1.Enabled = false;
-                }
-            }
         }
 
         private void background1_Click(object sender, EventArgs e)
         {
-            House1GUI = false;
-            House1HUD();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            House1GUI = true;
-            House1HUD();
-        }
-        private void House1HUD()
-        {
-            if (House1GUI == true)
-            {
-
-            button1.Visible = true;
+            if (House1LVL != 3){
+                var result = CustomDialogForm.Show(House1LVL);
+                if (result == DialogResult.OK)
+                {
+                    if (House1LVL == 1)
+                    {
+                        money = money - 100;
+                        MessageBox.Show("Bravo ! Maintenant essayez d'atteindre 200$ pour encore PLUS l'améliorer");
+                        label3.Text = "Niveau : 2";
+                        House1LVL = 2;
+                    }
+                    else
+                    {
+                        money = money - 200;
+                        MessageBox.Show("Bravo ! Maintenant essayez de cliquer sur les flêches !");
+                        label4.Visible = true;
+                        label3.Text = "Niveau : 3";
+                        House1LVL = 3;
+                    }
+                    
+                }
+                else
+                {
+                    // Action si annulé
+                }
             }
             else
             {
-                button1.Visible = false;
+                MessageBox.Show("Vous avez déjà atteint le niveau max (3)");
+            }
+        }
+        public partial class CustomDialogForm : Form
+        {
+            
+            public DialogResult Result { get; private set; }
+            private int _houseLevel;
+            public CustomDialogForm(int HouseLVL)
+            {
+                _houseLevel = HouseLVL;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.StartPosition = FormStartPosition.CenterParent;
+                this.BackgroundImage = Properties.Resources.ChatGPT_Image_8_mai_2025__11_15_54;
+                this.BackgroundImageLayout = ImageLayout.Stretch;
+                this.Width = 300;
+                this.Height = 150;
+
+                Label lblMessage = new Label()
+                {
+
+                    Text = "Voulez vous améliorer la maison ?",
+                    AutoSize = false,
+                    Width = 250,
+                    Height = 20,
+                    Location = new Point(20, 20),
+                    BackColor = Color.Transparent,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Segoe UI", 10),
+                    ForeColor = Color.Black,
+                };
+                Label lblMessage2 = new Label()
+                {
+                    AutoSize = false,
+                    Width = 250,
+                    Height = 20,
+                    Location = new Point(20, 50),
+                    BackColor = Color.Transparent,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Segoe UI", 10),
+                    ForeColor = Color.Black,
+                };
+                if (HouseLVL == 1)
+                {
+                    lblMessage2.Text = "Prix : 100$";
+                }
+                else
+                {
+                    lblMessage2.Text = "Prix : 200$";
+                }
+                lblMessage.MouseMove += (s, e) =>
+                {
+                    lblMessage.ForeColor = Color.Blue;
+                };
+                lblMessage.MouseLeave += (s, e) =>
+                {
+                    lblMessage.ForeColor = Color.Black;
+                };
+                lblMessage2.MouseMove += (s, e) =>
+                {
+                    lblMessage2.ForeColor = Color.Blue;
+                };
+                lblMessage2.MouseLeave += (s, e) =>
+                {
+                    lblMessage2.ForeColor = Color.Black;
+                };
+                Button btnOK = new Button()
+                {
+                    Text = "Améliorer",
+                    DialogResult = DialogResult.OK,
+                    Width = 100,
+                    Height = 30,
+                    Location = new Point(50, 90),
+                    BackColor = Color.FromArgb(0x4CAF50),
+                    ForeColor = Color.Black,
+                    FlatStyle = FlatStyle.Flat
+                };
+                btnOK.FlatAppearance.BorderSize = 0;
+                Button btnCancel = new Button()
+                {
+                    Text = "Annuler",
+                    DialogResult = DialogResult.Cancel,
+                    Width = 100,
+                    Height = 30,
+                    Location = new Point(160, 90),
+                    BackColor = Color.FromArgb(0xC23028),
+                    ForeColor = Color.Black,
+                    FlatStyle = FlatStyle.Flat
+                };
+                btnCancel.FlatAppearance.BorderSize = 0;
+                this.Controls.Add(lblMessage);
+                this.Controls.Add(btnOK);
+                this.Controls.Add(lblMessage2);
+                this.Controls.Add(btnCancel);
+
+                this.AcceptButton = btnOK;
+                this.CancelButton = btnCancel;
+            }
+
+            public static DialogResult Show(int HouseLVL)
+            {
+                using (CustomDialogForm form = new CustomDialogForm(HouseLVL))
+                {
+                    return form.ShowDialog();
+                }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (House1LVL == 1 && money >= 100){
-                button1.ForeColor = Color.Black;
-                button1.Enabled = false;
-                label3.Text = "Niveau : 2";
-                money = money - 100;
-                MessageBox.Show("Bravo ! maintenant assayer d'avoir 200$ !");
-                House1LVL = 2;
-                return;
-            }
-            if (House1LVL == 2 && money >= 200)
-            {
-                button1.ForeColor = Color.Black;
-                button1.Enabled = false;
-                label3.Text = "Niveau : 3 (max)";
-                money = money - 200;
-                MessageBox.Show("Bravo ! Une flèche est apparue au milieu en haut de votre écran. Testez de cliquer dessus !");
-                label4.Visible = true;
-                House1LVL = 3;
-                return;
-            }
-        }
+
 
         private async void label4_Click(object sender, EventArgs e)
         {
@@ -198,16 +258,7 @@ namespace Idle_Game___Strange_Village__
             
            
         }
-        protected override CreateParams CreateParams // améliore la fluidité du jeu
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000; // Pour un rendu fluide
-                return cp;
-
-            }
-        }
+        
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -397,9 +448,11 @@ namespace Idle_Game___Strange_Village__
                 WaluigilblTimer();
             }
         }
-
+       
+        
         private void pictureBox4_Click(object sender, EventArgs e)
         {
+            
             if (CrazyFrog == false)
             {
                 DialogResult rn = MessageBox.Show("Souhaitez vous débloquer --CrazyFrog-- ?", "Cost : 10,000$", MessageBoxButtons.YesNo);
@@ -408,8 +461,9 @@ namespace Idle_Game___Strange_Village__
                     if (money >= 10000)
                     {
                         money = money - 10000;
-                        pictureBox3.Image = Properties.Resources.CrazyFrogUnlocked;
+                        pictureBox4.Image = Properties.Resources.CrazyFrogUnlocked;
                         MessageBox.Show("Vous avez débloqué --CrazyFrog-- !");
+                        CrazyFrog = true;
                         XP = XP + 50;
                         return;
 
@@ -456,6 +510,15 @@ namespace Idle_Game___Strange_Village__
                 return;
             }
             label9.Text = "Niveau : "+LVL+"\r\nExp : " + XP.ToString() + " / " + valueXp.ToString();
+        }
+
+        private void background1_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
         }
     }
 }
