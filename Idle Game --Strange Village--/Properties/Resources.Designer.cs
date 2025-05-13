@@ -143,6 +143,16 @@ namespace Idle_Game___Strange_Village__.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pixil_frame_0__7_ {
+            get {
+                object obj = ResourceManager.GetObject("pixil_frame_0__7_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sr5z7f7962affaaws3 {
             get {
                 object obj = ResourceManager.GetObject("sr5z7f7962affaaws3", resourceCulture);

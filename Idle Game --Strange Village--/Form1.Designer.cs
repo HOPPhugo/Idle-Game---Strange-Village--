@@ -286,7 +286,6 @@
             // CrazyFrogTimer
             // 
             this.CrazyFrogTimer.Enabled = true;
-            this.CrazyFrogTimer.Interval = 1000;
             this.CrazyFrogTimer.Tick += new System.EventHandler(this.CrazyFrogTimer_Tick);
             // 
             // XP_TIMER

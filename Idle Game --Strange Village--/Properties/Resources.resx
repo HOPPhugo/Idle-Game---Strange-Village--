@@ -136,6 +136,9 @@
   <data name="pixil_frame_0__3_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pixil-frame-0 (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pixil_frame_0__7_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pixil-frame-0 (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sr5z7f7962affaaws3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sr5z7f7962affaaws3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
