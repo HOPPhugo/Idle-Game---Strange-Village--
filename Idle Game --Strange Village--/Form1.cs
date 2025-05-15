@@ -33,7 +33,7 @@ namespace Idle_Game___Strange_Village__
         int calculeL;
         bool House1GUI = false;
         bool message1 = true;
-        bool waluigi  = false;
+        bool waluigi = false;
         string textUse;
         int XP = 0;
         bool CrazyFrog = false;
@@ -264,12 +264,13 @@ namespace Idle_Game___Strange_Village__
                     labelFont = new Font("Segoe UI", 10);
             }
         }
-        
+
         private void FirstHouse_Tick(object sender, EventArgs e)
         {
-            if (House1LVL ==1){
-            label2.Text = "+ 10$";
-            money = money + 10;
+            if (House1LVL == 1)
+            {
+                label2.Text = "+ 10$";
+                money = money + 10;
                 FirstHouseLabel2();
             }
             if (House1LVL == 2)
@@ -291,14 +292,14 @@ namespace Idle_Game___Strange_Village__
             label1.Text = "Money : " + money + "$";
 
         }
-        private async void FirstHouseLabel2 ()
+        private async void FirstHouseLabel2()
         {
             await Task.Delay(500);
             label2.Text = "";
         }
         private void verification()
         {
-            
+
         }
 
         private void Vérif_Tick(object sender, EventArgs e)
@@ -320,7 +321,7 @@ namespace Idle_Game___Strange_Village__
                 {
                     if (House1LVL == 1)
                     {
-                        if( money >= 100)
+                        if (money >= 100)
                         {
                             money = money - 100;
                             textUse = "Bravo ! Maintenant essayez d'atteindre 200$ pour encore PLUS l'améliorer";
@@ -356,7 +357,7 @@ namespace Idle_Game___Strange_Village__
                             return;
                         }
                     }
-                    
+
                 }
                 else
                 {
@@ -579,48 +580,45 @@ namespace Idle_Game___Strange_Village__
                     labelFont = new Font("Segoe UI", 10);
             }
         }
+        // Gère le clic sur label4 pour faire défiler l'interface vers le bas
         private async void label4_Click(object sender, EventArgs e)
         {
-           
-                int location = background1.Location.Y;
-                int changer = background1.Location.Y;
-                while (location <= 0)
+            int location = background1.Location.Y;
+            int changer = background1.Location.Y;
+            while (location <= 0)
+            {
+                if (location + 10 <= 0)
                 {
-                    if (location + 10 <= 0)
+                    location = background1.Location.Y;
+                    int location2 = label1.Location.Y;
+                    int location3 = label9.Location.Y;
+                    await Task.Delay(10); // Attente pour animation fluide
+                    changer = changer + 10;
+                    location2 = location2 - 10;
+                    location3 = location3 - 10;
+                    background1.Location = new Point(0, changer);
+                    label1.Location = new Point(3, location2);
+                    label9.Location = new Point(614, location3);
+                    if (location == 0)
                     {
-
-                        location = background1.Location.Y;
-                        int location2 = label1.Location.Y;
-                        int location3 = label9.Location.Y;
-                        await Task.Delay(10);
-                        changer = changer + 10;
-                        location2 = location2 - 10;
-                        location3 = location3 - 10;
-                        background1.Location = new Point(0, changer) ;
-                        label1.Location = new Point(3, location2);
-                        label9.Location = new Point(614, location3);
-                        if (location == 0)
-                        {
-                            return;
-                        }
+                        return;
                     }
                 }
-
-            
-            
-           
+            }
         }
-        
 
+        // Gère l'achat et le clic de Birdie
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            if (birdie ==  false)
+            if (birdie == false)
             {
+                // Affiche boîte de dialogue pour débloquer Birdie
                 textUse = "Voulez vous débloquer --Birdie-- ? \nCost : 300$";
                 var r = CustomDialogForm3.Show(textUse);
                 if (r == DialogResult.Yes)
                 {
-                    if (money >= 300){
+                    if (money >= 300)
+                    {
                         birdie = true;
                         money = money - 300;
                         pictureBox2.Image = Properties.Resources._3ooRmV;
@@ -633,20 +631,22 @@ namespace Idle_Game___Strange_Village__
                     }
                     else
                     {
+                        // Message d'argent insuffisant
                         textUse = "Vous n'avez pas asser d'argens...";
                         var result = CustomDialogForm.Show(textUse);
                     }
                 }
                 if (r == DialogResult.No)
                 {
-
+                    // Rien ne se passe si refus
                 }
             }
             else
             {
+                // Génère de l'argent manuellement si Birdie est déjà débloqué
                 NBRClickB = NBRClickB + 1;
                 multiplication = NBRClickB / 10;
-                if ( multiplication < 1)
+                if (multiplication < 1)
                 {
                     money = money + 5;
                     label6.Text = "+ 5$";
@@ -654,29 +654,29 @@ namespace Idle_Game___Strange_Village__
                 }
                 else
                 {
-                    money  = money + (5 * multiplication);
-                    label6.Text = "+ "+5 * multiplication + "$";
+                    money = money + (5 * multiplication);
+                    label6.Text = "+ " + 5 * multiplication + "$";
                     Birdie_Texte();
                 }
-                
             }
         }
+
+        // Efface le texte d'argent généré par Birdie après un délai
         private async void Birdie_Texte()
         {
             await Task.Delay(500);
             label6.Text = "";
         }
 
+        // Gère le clic sur label5 pour faire défiler l'interface vers le haut
         private async void label5_Click(object sender, EventArgs e)
         {
-
             int location = background1.Location.Y;
             int changer = background1.Location.Y;
             while (location >= -450)
             {
                 if (location - 10 >= -450)
                 {
-
                     location = background1.Location.Y;
                     int location3 = label9.Location.Y;
                     int location2 = label1.Location.Y;
@@ -695,6 +695,7 @@ namespace Idle_Game___Strange_Village__
             }
         }
 
+        // Gère l'achat et l'amélioration de l'auto Birdie
         private void button2_Click(object sender, EventArgs e)
         {
             if (autoBirdie == false)
@@ -743,6 +744,7 @@ namespace Idle_Game___Strange_Village__
             }
         }
 
+        // Gère le gain automatique d'argent avec l'auto Birdie
         private void autoBirdie_Timer_Tick(object sender, EventArgs e)
         {
             if (autoBirdie == true && birdielbl2 == false)
@@ -759,11 +761,12 @@ namespace Idle_Game___Strange_Village__
             }
         }
 
+        // Événement vide de dessin du fond
         private void background1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
+        // Gère l'achat de Waluigi
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             if (waluigi == false)
@@ -784,7 +787,6 @@ namespace Idle_Game___Strange_Village__
                         pictureBox4.Visible = true;
                         label9.Visible = true;
                         return;
-
                     }
                     else
                     {
@@ -799,12 +801,15 @@ namespace Idle_Game___Strange_Village__
                 var wa = CustomDialogForm.Show(textUse);
             }
         }
+
+        // Efface le texte d'argent généré par Waluigi après un délai
         private async void WaluigilblTimer()
         {
             await Task.Delay(500);
             label8.Text = "";
         }
 
+        // Gère le gain automatique d'argent avec Waluigi
         private void WAluigiTimer_Tick(object sender, EventArgs e)
         {
             if (waluigi == true)
@@ -814,11 +819,10 @@ namespace Idle_Game___Strange_Village__
                 WaluigilblTimer();
             }
         }
-       
-        
+
+        // Gère l'achat de CrazyFrog
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            
             if (CrazyFrog == false)
             {
                 textUse = "Souhaitez vous débloquer --CrazyFrog-- ?\nCost : 10,000$";
@@ -836,7 +840,6 @@ namespace Idle_Game___Strange_Village__
                         textUse = "BRAVO VOUS AVEZ FINI LE JEU ! ( j'ai pas un temps infini pour fair un idle game c'est trop loooooooooooong)";
                         var a = CustomDialogForm.Show(textUse);
                         return;
-
                     }
                     else
                     {
@@ -851,12 +854,15 @@ namespace Idle_Game___Strange_Village__
                 var ran = CustomDialogForm.Show(textUse);
             }
         }
+
+        // Efface le texte d'argent généré par CrazyFrog après un délai
         private async void CrazyLabel()
         {
             await Task.Delay(500);
             label9.Text = "";
         }
 
+        // Gère le gain automatique d'argent avec CrazyFrog
         private void CrazyFrogTimer_Tick(object sender, EventArgs e)
         {
             if (CrazyFrog == true)
@@ -867,11 +873,12 @@ namespace Idle_Game___Strange_Village__
             }
         }
 
+        // Clic sur le label9 (ne fait rien actuellement)
         private void label9_Click(object sender, EventArgs e)
         {
-
         }
 
+        // Gère la montée de niveau avec l'expérience
         private void XP_TIMER_Tick(object sender, EventArgs e)
         {
             if (XP == valueXp)
@@ -882,22 +889,22 @@ namespace Idle_Game___Strange_Village__
                 var ran = CustomDialogForm.Show(textUse);
                 return;
             }
-            label9.Text = "Niveau : "+LVL+"\r\nExp : " + XP.ToString() + " / " + valueXp.ToString();
+            label9.Text = "Niveau : " + LVL + "\r\nExp : " + XP.ToString() + " / " + valueXp.ToString();
         }
 
+        // Événement vide si taille de background1 change
         private void background1_SizeChanged(object sender, EventArgs e)
         {
-
         }
 
+        // Événement vide si taille du formulaire change
         private void Form1_SizeChanged(object sender, EventArgs e)
         {
         }
 
+        // Timer vide
         private void timer1_Tick(object sender, EventArgs e)
         {
-
         }
-
     }
 }
